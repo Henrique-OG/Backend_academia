@@ -16,3 +16,11 @@ def menu_principal():
 5 - Frequência
 6 - Relatórios''')
     linha()
+
+def menu_aluno():
+    cabecalho('Menu de alunos')
+    print('''1 - Cadastrar aluno
+2 - Ver alunos cadastrados
+3 - Atualizar dados
+4 - Excluir aluno
+5 - Voltar para menu principal''')
