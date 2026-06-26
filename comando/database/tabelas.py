@@ -1,4 +1,6 @@
 import sqlite3
+from rich.console import Console
+from rich.table import Table
 
 class Tabelas():
 
@@ -16,4 +18,23 @@ class Tabelas():
 
         cursor.execute(comando_sql)
         conexao.commit()
+        conexao.close()
+
+    def mostrar_id_alunos(self):
+        conexao = sqlite3.connect('comando/database/dados.db')
+        cursor = conexao.cursor()
+
+        cursor.execute("""SELECT id,nome FROM alunos""")
+        dados = cursor.fetchall()
+
+        t = Table(title='alunos')
+        t.add_column('id', justify='center')
+        t.add_column('nome', justify='center')
+
+        for dado in dados:
+            t.add_row(str(dado[0]), str(dado[1]))
+
+        console = Console()
+        console.print(t)
+
         conexao.close()
