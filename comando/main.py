@@ -3,7 +3,7 @@ from comando.database.tabelas import Tabelas
 from interface import *
 from comando.utils.validar import *
 from comando.classes.alunos import *
-
+from comando.classes.treinos import *
 
 def main():
 
@@ -17,9 +17,11 @@ def main():
         if escolha_do_usuario == 1:
             menu_aluno()
         elif escolha_do_usuario == 2:
-            pass
+            menu_de_treinos()
         elif escolha_do_usuario == 7:
             break
+
+    print('Fim do programa')
 
 if __name__ == '__main__':
     main()

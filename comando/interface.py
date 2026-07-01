@@ -42,7 +42,6 @@ def menu_de_treinos_interface():
     print('''1 - Cadastrar treino
 2 - Atribuir treino para aluno
 3 - Ver treinos disponiveis
-4 - Mudar treino do aluno
-5 - Excluir treino
+4 - Excluir treino
 5 - Voltar''')
     linha()
