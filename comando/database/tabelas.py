@@ -13,10 +13,20 @@ class Tabelas():
                 nome TEXT NOT NULL,
                 idade INTEGER NOT NULL,
                 peso REAL NOT NULL,
-                altura REAL NOT NULL
+                altura REAL NOT NULL,
+                id_treino INTEGER DEFAULT NULL
                 )"""
 
         cursor.execute(comando_sql)
+
+        comando_sql = """CREATE TABLE IF NOT EXISTS treinos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        description TEXT NOT NULL
+        )"""
+
+        cursor.execute(comando_sql)
+
         conexao.commit()
         conexao.close()
 

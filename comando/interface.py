@@ -36,3 +36,13 @@ def menu_aluno_dados():
 
 obs: para editar o peso, vá para o menu de evolução''')
     linha()
+
+def menu_de_treinos_interface():
+    cabecalho('Menu de treinos')
+    print('''1 - Cadastrar treino
+2 - Atribuir treino para aluno
+3 - Ver treinos disponiveis
+4 - Mudar treino do aluno
+5 - Excluir treino
+5 - Voltar''')
+    linha()

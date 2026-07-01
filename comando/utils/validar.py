@@ -38,5 +38,20 @@ def validar_id_do_usuario(id_usuario):
     else:
         return dados[0]
 
+def validar_id_do_treino(id):
 
+    id = validar_num_int(id)
+
+    conexao = sqlite3.connect('comando/database/dados.db')
+    cursor = conexao.cursor()
+
+    comando_sql = """SELECT * FROM treinos WHERE id = ?"""
+    cursor.execute(comando_sql, (id,))
+
+    dados = cursor.fetchone()
+
+    if dados == None:
+        return 'ERRO'
+    else:
+        return dados[0]
 

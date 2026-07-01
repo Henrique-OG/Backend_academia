@@ -31,6 +31,7 @@ class Aluno():
         cursor.execute(comando_sql)
 
         dados = cursor.fetchall()
+        quantidade = len(dados)
 
         tabela = Table(title="Alunos", title_justify='center')
         tabela.add_column('id', justify='center')
@@ -38,14 +39,15 @@ class Aluno():
         tabela.add_column('idade', justify='center')
         tabela.add_column('peso', justify='center')
         tabela.add_column('altura', justify='center')
+        tabela.add_column('id_treino', justify='center')
 
         for aluno in dados:
-            id, nome, idade, peso, altura = aluno
-            tabela.add_row(str(id), str(nome), str(idade), str(peso), str(altura))
+            id, nome, idade, peso, altura, id_treino = aluno
+            tabela.add_row(str(id), str(nome), str(idade), str(peso), str(altura), str(id_treino))
 
         console = Console()
         console.print(tabela)
-
+        print(f'Total: {quantidade} alunos')
         conexao.close()
 
     def atualizar_dados(self):
