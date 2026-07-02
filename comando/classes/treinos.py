@@ -74,7 +74,7 @@ class Treinos():
 
 
         while True:
-            Treinos.ver_treinos(self)
+            self.ver_treinos()
             id_treino = validar_id_do_treino(input('Digite o id do treino: '))
             if id_treino == 'ERRO' and tentativas > 3:
                 return 'ERRO ao acessar dados'
@@ -100,7 +100,7 @@ class Treinos():
         tentativas = 0
 
         while True:
-            Treinos.ver_treinos(self)
+            self.ver_treinos()
             continuar = input('Deseja continuar? [S/N]: ').upper().strip()[0]
             while continuar not in 'SN':
                 continuar = input('Deseja continuar? [S/N]: ').upper().strip()[0]
@@ -109,9 +109,10 @@ class Treinos():
             id_treino = validar_id_do_treino(input('Digite o id do treino: '))
             if id_treino == 'ERRO' and tentativas > 3:
                 return 'ERRO ao acessar dados'
-            tentativas += 1
             if id_treino != 'ERRO':
                 break
+            tentativas += 1
+
 
         resposta = input('Certeza que deseja deletar o treino [S/N]: ').upper().strip()[0]
         while resposta != 'S' and resposta != 'N':
@@ -120,10 +121,10 @@ class Treinos():
         if resposta == 'N':
             return 'cancelado com sucesso!'
         else:
-            comando_sql = """DELETE FROM treinos WHERE id = ?"""
-            cursor.execute(comando_sql, (id_treino,))
             comando_sql = """UPDATE alunos SET id_treino = ? WHERE id_treino = ?"""
             cursor.execute(comando_sql, ( None , id_treino))
+            comando_sql = """DELETE FROM treinos WHERE id = ?"""
+            cursor.execute(comando_sql, (id_treino,))
             conexao.commit()
             conexao.close()
             if cursor.rowcount > 0:
