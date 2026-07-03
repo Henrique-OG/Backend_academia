@@ -45,3 +45,12 @@ def menu_de_treinos_interface():
 4 - Excluir treino
 5 - Voltar''')
     linha()
+
+def menu_de_exercicios_interface():
+    cabecalho('Menu de exercicios')
+    print('''1 - Cadastrar exercicio
+2 - Ver exercicios disponiveis
+3 - Vincular exercicio a um treino
+4 - Excluir exercicio
+5 - Voltar''')
+    linha()

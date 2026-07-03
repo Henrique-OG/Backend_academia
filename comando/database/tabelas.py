@@ -7,7 +7,10 @@ class Tabelas():
     def criar_tabela(self):
         conexao = sqlite3.connect('comando/database/dados.db')
         cursor = conexao.cursor()
+        cursor.execute("PRAGMA foreign_keys = ON")
 
+
+        # Tabela alunos
         comando_sql = """CREATE TABLE IF NOT EXISTS alunos (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 nome TEXT NOT NULL,
@@ -19,10 +22,40 @@ class Tabelas():
 
         cursor.execute(comando_sql)
 
+        # Tabela de treinos
         comando_sql = """CREATE TABLE IF NOT EXISTS treinos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         description TEXT NOT NULL
+        )"""
+
+        cursor.execute(comando_sql)
+
+        # Tabela de exercicios
+        comando_sql = """CREATE TABLE IF NOT EXISTS exercicios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        grupo_muscular TEXT NOT NULL,
+        description TEXT NOT NULL
+        )"""
+
+        cursor.execute(comando_sql)
+
+        # Tabela de exercicios com treinos
+        comando_sql = """CREATE TABLE IF NOT EXISTS exercicios_treinos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_treino INTEGER NOT NULL,
+        id_exercicio INTEGER NOT NULL,
+        series INTEGER NOT NULL,
+        repeticoes INTEGER NOT NULL,
+                
+        FOREIGN KEY (id_treino)
+        REFERENCES treinos (id)
+        ON DELETE CASCADE,
+        
+        FOREIGN KEY (id_exercicio)
+        REFERENCES exercicios (id)
+        ON DELETE CASCADE
         )"""
 
         cursor.execute(comando_sql)

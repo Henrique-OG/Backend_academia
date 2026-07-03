@@ -1,15 +1,13 @@
-from comando.classes.treinos import Treinos
-from comando.database.tabelas import Tabelas
 from interface import *
 from comando.utils.validar import *
 from comando.classes.alunos import *
 from comando.classes.treinos import *
+from comando.classes.exercicios import *
 
 def main():
 
     t = Tabelas()
     t.criar_tabela()
-    treino = Treinos()
 
     while True:
         menu_principal()
@@ -18,6 +16,8 @@ def main():
             menu_aluno()
         elif escolha_do_usuario == 2:
             menu_de_treinos()
+        elif escolha_do_usuario == 3:
+            menu_de_exercicios()
         elif escolha_do_usuario == 7:
             break
 
