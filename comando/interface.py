@@ -60,3 +60,4 @@ def menu_de_evolucao_inteface():
     print('''1 - Cadastrar evolução
 2 - Ver evoluções
 3 - voltar''')
+    linha()
