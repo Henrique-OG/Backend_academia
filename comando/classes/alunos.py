@@ -96,6 +96,7 @@ class Aluno():
         t = Tabelas()
         conexao = sqlite3.connect('comando/database/dados.db')
         cursor = conexao.cursor()
+        cursor.execute("PRAGMA foreign_keys = ON")
 
         tentativas = 0
 

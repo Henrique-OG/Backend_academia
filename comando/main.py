@@ -1,5 +1,6 @@
+from comando.classes.evolucao import Evolucao
 from interface import *
-from comando.utils.validar import *
+from comando.classes.evolucao import *
 from comando.classes.alunos import *
 from comando.classes.treinos import *
 from comando.classes.exercicios import *
@@ -8,6 +9,7 @@ def main():
 
     t = Tabelas()
     t.criar_tabela()
+    e = Evolucao()
 
     while True:
         menu_principal()
@@ -18,6 +20,8 @@ def main():
             menu_de_treinos()
         elif escolha_do_usuario == 3:
             menu_de_exercicios()
+        elif escolha_do_usuario == 4:
+            menu_evolucao()
         elif escolha_do_usuario == 7:
             break
 

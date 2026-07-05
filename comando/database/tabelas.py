@@ -60,6 +60,22 @@ class Tabelas():
 
         cursor.execute(comando_sql)
 
+        #tabela de evolução
+        comando_sql = """CREATE TABLE IF NOT EXISTS evolucao (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_aluno INTEGER NOT NULL,
+        peso TEXT NOT NULL,
+        altura REAL NOT NULL,
+        observacao TEXT NOT NULL,
+        data TEXT NOT NULL,
+        
+        FOREIGN KEY (id_aluno)
+        REFERENCES alunos (id)
+        ON DELETE CASCADE
+        )"""
+
+        cursor.execute(comando_sql)
+
         conexao.commit()
         conexao.close()
 

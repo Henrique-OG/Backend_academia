@@ -54,3 +54,9 @@ def menu_de_exercicios_interface():
 4 - Excluir exercicio
 5 - Voltar''')
     linha()
+
+def menu_de_evolucao_inteface():
+    cabecalho('Menu de evolução')
+    print('''1 - Cadastrar evolução
+2 - Ver evoluções
+3 - voltar''')
