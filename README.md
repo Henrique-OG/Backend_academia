@@ -61,8 +61,8 @@ BackendAcademia/
 
 ### Evolução
 
-* [ ] Registrar evolução física
-* [ ] Consultar evolução
+* [X] Registrar evolução física
+* [X] Consultar evolução
 
 ### Área do aluno
 
