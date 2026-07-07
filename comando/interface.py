@@ -68,3 +68,13 @@ def menu_principal_interface():
 2 - Acessar conta do aluno
 3 - Sair do programa''')
     linha()
+
+def menu_para_alunos_interface():
+    cabecalho('Menu para alunos ')
+    print('''1 - Verificar dados
+2 - Ver treinos da semana
+3 - Marcar presença
+4 - ver evolução
+5 - baixar relatório
+6 - Sair''')
+    linha()

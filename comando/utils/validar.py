@@ -12,7 +12,7 @@ def validar_num_int(num):
 
 def validar_escolhas(escolha, maximo):
     escolha = validar_num_int(escolha)
-    while escolha > maximo:
+    while escolha > maximo or escolha <= 0:
         escolha = validar_num_int(input('Digite uma escolha valida: '))
     return escolha
 

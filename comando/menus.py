@@ -1,3 +1,4 @@
+from comando.classes.area_aluno import Area_aluno
 from interface import *
 from comando.classes.evolucao import *
 from comando.classes.alunos import *
@@ -19,3 +20,13 @@ def menu_professor():
         elif escolha_do_usuario == 7:
             break
 
+def area_aluno_menu(id):
+    a = Area_aluno(id)
+
+    while True:
+        menu_para_alunos_interface()
+        escolha = validar_escolhas(input('Digite sua escolha: '), 6)
+        if escolha == 1:
+            a.verificar_dados()
+        elif escolha == 6:
+            break

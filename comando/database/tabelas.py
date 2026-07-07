@@ -46,6 +46,7 @@ class Tabelas():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_treino INTEGER NOT NULL,
         id_exercicio INTEGER NOT NULL,
+        dia_semana TEXT NOT NULL,
         series INTEGER NOT NULL,
         repeticoes INTEGER NOT NULL,
                 

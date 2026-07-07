@@ -15,7 +15,16 @@ def main():
             menu_professor()
         elif escolha == 2:
             sleep(1)
-            pass
+            tentativas = 0
+            while True:
+                id = validar_id_do_usuario(input('Digite o id do aluno: '))
+                if id == 'ERRO' and tentativas > 3 or id != 'ERRO':
+                    break
+                tentativas += 1
+            if id == 'ERRO':
+                print('Erro ao acessar dados..')
+            else:
+                area_aluno_menu(id)
         elif escolha == 3:
             break
 
