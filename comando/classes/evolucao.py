@@ -82,9 +82,6 @@ class Evolucao():
         c.print(rich_tabela)
         return f'total: {len(dados_evolucao)}'
 
-
-
-
 def menu_evolucao():
     e = Evolucao()
     while True:

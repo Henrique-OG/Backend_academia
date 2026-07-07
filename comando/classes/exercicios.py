@@ -121,7 +121,6 @@ class Exercicio:
             else:
                 return 'Falha ao deletar exercicio!'
 
-
 def menu_de_exercicios():
     exercicio = Exercicio()
     while True:

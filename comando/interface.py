@@ -7,8 +7,8 @@ def cabecalho(txt):
     print(f'{txt: ^50}')
     linha()
 
-def menu_principal():
-    cabecalho('Menu principal')
+def menu_professor_interface():
+    cabecalho('Menu professor')
     print('''1 - Alunos
 2 - Treinos
 3 - Exercicios
@@ -60,4 +60,11 @@ def menu_de_evolucao_inteface():
     print('''1 - Cadastrar evolução
 2 - Ver evoluções
 3 - voltar''')
+    linha()
+
+def menu_principal_interface():
+    cabecalho('Menu principal')
+    print('''1 - Acessar area professor
+2 - Acessar conta do aluno
+3 - Sair do programa''')
     linha()

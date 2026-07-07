@@ -1,28 +1,22 @@
-from comando.classes.evolucao import Evolucao
-from interface import *
-from comando.classes.evolucao import *
-from comando.classes.alunos import *
-from comando.classes.treinos import *
-from comando.classes.exercicios import *
+from comando.menus import *
+from time import sleep
 
 def main():
 
     t = Tabelas()
     t.criar_tabela()
-    e = Evolucao()
 
     while True:
-        menu_principal()
-        escolha_do_usuario = validar_escolhas(input('Digite sua escolha: '), 7)
-        if escolha_do_usuario == 1:
-            menu_aluno()
-        elif escolha_do_usuario == 2:
-            menu_de_treinos()
-        elif escolha_do_usuario == 3:
-            menu_de_exercicios()
-        elif escolha_do_usuario == 4:
-            menu_evolucao()
-        elif escolha_do_usuario == 7:
+        menu_principal_interface()
+        sleep(1)
+        escolha = validar_escolhas(input('Digite sua escolha: '), 3)
+        if escolha == 1:
+            sleep(1)
+            menu_professor()
+        elif escolha == 2:
+            sleep(1)
+            pass
+        elif escolha == 3:
             break
 
     print('Fim do programa')
