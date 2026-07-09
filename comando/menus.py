@@ -25,8 +25,16 @@ def area_aluno_menu(id):
 
     while True:
         menu_para_alunos_interface()
-        escolha = validar_escolhas(input('Digite sua escolha: '), 6)
+        escolha = validar_escolhas(input('Digite sua escolha: '), 7)
         if escolha == 1:
             a.verificar_dados()
+        elif escolha == 2:
+            a.ver_treino_semana()
+        elif escolha == 3:
+            print(a.marcar_presenca())
+        elif escolha == 4:
+            a.ver_evolucao()
         elif escolha == 6:
+            a.ver_presencas()
+        elif escolha == 7:
             break

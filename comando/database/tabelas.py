@@ -46,7 +46,7 @@ class Tabelas():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_treino INTEGER NOT NULL,
         id_exercicio INTEGER NOT NULL,
-        dia_semana TEXT NOT NULL,
+        dia_semana INTEGER NOT NULL,
         series INTEGER NOT NULL,
         repeticoes INTEGER NOT NULL,
                 
@@ -69,6 +69,20 @@ class Tabelas():
         altura REAL NOT NULL,
         observacao TEXT NOT NULL,
         data TEXT NOT NULL,
+        
+        FOREIGN KEY (id_aluno)
+        REFERENCES alunos (id)
+        ON DELETE CASCADE
+        )"""
+
+        cursor.execute(comando_sql)
+
+        # Tabela presenças
+        comando_sql = """CREATE TABLE IF NOT EXISTS presenca (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_aluno INTEGER NOT NULL,
+        data TEXT NOT NULL,
+        presente TEXT NOT NULL,
         
         FOREIGN KEY (id_aluno)
         REFERENCES alunos (id)

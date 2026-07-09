@@ -76,5 +76,6 @@ def menu_para_alunos_interface():
 3 - Marcar presença
 4 - ver evolução
 5 - baixar relatório
-6 - Sair''')
+6 - ver presenças
+7 - Sair''')
     linha()

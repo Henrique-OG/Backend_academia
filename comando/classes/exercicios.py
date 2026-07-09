@@ -73,12 +73,11 @@ class Exercicio:
                 return 'ERRO ao encontrar exercicio'
             tentativas += 1
 
-        dias_da_semana = ['SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA', 'SÁBADO', 'DOMINGO']
         print('''Escolha o dia da semana:
 1 - Segunda 
 2 - Terça 
 3 - Quarta
-4 - Quarta
+4 - Quinta
 5 - Sexta
 6 - Sábado
 7 - Domingo
@@ -92,7 +91,7 @@ class Exercicio:
         conexao = sqlite3.connect('comando/database/dados.db')
         cursor = conexao.cursor()
         comando_sql = """INSERT INTO exercicios_treinos (id_treino, id_exercicio, dia_semana, series, repeticoes) VALUES (?, ?, ?, ?, ?)"""
-        cursor.execute(comando_sql, (id_treino, id_exercicio, dias_da_semana[dia_semana-1], series, repeticoes))
+        cursor.execute(comando_sql, (id_treino, id_exercicio, dia_semana, series, repeticoes))
 
         conexao.commit()
         conexao.close()

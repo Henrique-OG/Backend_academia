@@ -75,7 +75,7 @@ class Evolucao():
         rich_tabela.add_column('observacao', justify='center')
         rich_tabela.add_column('data', justify='center')
 
-        print(dado_aluno[0])
+        print(dado_aluno[0][0])
         for itens in dados_evolucao:
             rich_tabela.add_row(str(itens[0]), str(itens[1]), str(itens[2]), str(itens[3]), str(itens[4]))
         c = Console()
