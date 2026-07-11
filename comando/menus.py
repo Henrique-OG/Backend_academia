@@ -8,7 +8,7 @@ from comando.classes.exercicios import *
 def menu_professor():
     while True:
         menu_professor_interface()
-        escolha_do_usuario = validar_escolhas(input('Digite sua escolha: '), 7)
+        escolha_do_usuario = validar_escolhas(input('Digite sua escolha: '), 5)
         if escolha_do_usuario == 1:
             menu_aluno()
         elif escolha_do_usuario == 2:
@@ -17,7 +17,7 @@ def menu_professor():
             menu_de_exercicios()
         elif escolha_do_usuario == 4:
             menu_evolucao()
-        elif escolha_do_usuario == 7:
+        elif escolha_do_usuario == 5:
             break
 
 def area_aluno_menu(id):
@@ -34,6 +34,8 @@ def area_aluno_menu(id):
             print(a.marcar_presenca())
         elif escolha == 4:
             a.ver_evolucao()
+        elif escolha == 5:
+            print(a.exportar_excel())
         elif escolha == 6:
             a.ver_presencas()
         elif escolha == 7:

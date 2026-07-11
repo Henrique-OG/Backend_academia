@@ -13,9 +13,7 @@ def menu_professor_interface():
 2 - Treinos
 3 - Exercicios
 4 - evolução
-5 - Frequência
-6 - Relatórios
-7 - Encerrar''')
+5 - Encerrar''')
     linha()
 
 def menu_aluno_interface():

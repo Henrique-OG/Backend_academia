@@ -2,6 +2,8 @@ import sqlite3
 from rich.console import Console
 from rich.table import Table
 from datetime import datetime
+from openpyxl import Workbook
+import os
 
 class Area_aluno():
     def __init__(self, id):
@@ -133,3 +135,52 @@ class Area_aluno():
 
         conexao.close()
 
+    def exportar_excel(self):
+
+        try:
+
+            conexao = sqlite3.connect('comando/database/dados.db')
+            cursor = conexao.cursor()
+
+            comando_sql = """SELECT data,presente FROM presenca WHERE id_aluno = ?"""
+            cursor.execute(comando_sql, (self.id,))
+            dados_presenca = cursor.fetchall()
+
+            comando_sql = """SELECT peso,altura,observacao,data FROM evolucao WHERE id_aluno = ?"""
+            cursor.execute(comando_sql, (self.id,))
+
+            dados_evolucao = cursor.fetchall()
+
+            planilha = Workbook()
+            aba = planilha.active
+
+            aba.title = "RELATÓRIO"
+
+            aba['B2'] = 'DATA'
+            aba['C2'] = 'ESTATOS'
+            aba['E2'] = 'DATA'
+            aba['F2'] = 'PESO'
+            aba['G2'] = 'ALTURA'
+            aba['H2'] = 'OBSERVACAO'
+
+            for posicao, dados in enumerate(dados_presenca, start=2):
+                data, estatos = dados
+
+                aba.cell(row=posicao + 1, column=2, value=data)
+                aba.cell(row=posicao + 1, column=3, value=estatos)
+
+            for posicao,dados in enumerate(dados_evolucao, start=2):
+                peso,altura,observacao,data = dados
+                aba.cell(row=posicao + 1, column=5, value=data)
+                aba.cell(row=posicao + 1, column=6, value=peso)
+                aba.cell(row=posicao + 1, column=7, value=altura)
+                aba.cell(row=posicao + 1, column=8, value=observacao)
+
+            planilha.save('comando/database/relatorio.xlsx')
+            conexao.close()
+            print('Salvando em:', os.getcwd())
+            return 'Salvo com sucesso'
+
+        except:
+
+            return 'Erro ao acessar dados'
